@@ -7,100 +7,30 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Memo</title>
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-    <script src="jquery-1.2.6.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="memo.js" type="text/javascript" charset="utf-8"></script>
   </head>
-  <body>    
-    <h3>Need</h3>
-    <div class="item">
-      <a href="" class="button">
-        Have
+  <body>  
+    <a href="javascript:add_item()" class="button no_float">
+      Add item
+    </a>
+    
+    <div id="item_form" style="display: none;">
+      <h3>New item</h3>
+      <input id="item_name" />
+      <a href="javascript:save_item()" class="button no_float">
+        Save
       </a>
-      <div class="text">
-        Bananas
-      </div>
+      <a href="javascript:cancel_item()" class="button no_float">
+        Cancel
+      </a>
     </div>
-    <div class="item">
-      <a href="" class="button">
-        Have
-      </a>
-      <div class="text">
-        Oranges
-      </div>
-    </div>    
-    <div class="item" style="display:none"  id="test2">
-      <a href="" class="button">
-        Have
-      </a>
-      <div class="text">
-        Bread
-      </div>
-    </div>      
+      
+    <h3>Need</h3>
+    <div id="need">   
+    </div>
     
     <h3>Have</h3>  
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Toothpaste
-      </div>
-    </div>   
-    <div class="item" id="test">
-      <a href="" onclick="javascript:test(); return false" class="button">
-        Need
-      </a>
-      <div class="text">
-        Bread
-      </div>
-    </div>   
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Toothpaste
-      </div>
-    </div>   
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Bread
-      </div>
-    </div>      
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Toothpaste
-      </div>
-    </div>   
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Bread
-      </div>
-    </div> 
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Toothpaste
-      </div>
-    </div>   
-    <div class="item">
-      <a href="" class="button">
-        Need
-      </a>
-      <div class="text">
-        Bread
-      </div>
-    </div>                 
+    <div id="have">
+    </div>
   </body>
 </html>

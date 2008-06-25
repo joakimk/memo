@@ -1,0 +1,20 @@
+What works?
+* It runs somewhat good in firefox, except for the bugs :)
+
+Bugs:
+* When adding and removing out of order, items refuse to move
+  visually, but still adds itself multiple times...
+
+Limits:
+* The key's to identify items are the name, unmodifed.
+  - Only one-word names are supported.
+* There are no delete.
+* Assignment to .id does not work for WM5.0
+
+What I want:
+* A way to REMOVE the item. It worked flawlessly when parentNode
+  was used (but then it would not run at all on WM5.0).
+
+Limitations on Windows Mobile 5.0:
+- No .parentNode
+- You can't change .id.

@@ -11,6 +11,22 @@ body h3 {
   font-size: 18px;
 }
 
+.button,
+.item .button
+{
+  border: 2px solid #00AA00;
+  background-color: #00FF00;
+  width: 60px;
+  text-align: center;
+  font-size: 12px;  
+  float: right;
+}
+
+.no_float
+{
+  float: none;
+}
+
 .item
 {
   font-size: 16px;
@@ -24,16 +40,6 @@ body h3 {
   float: left;
 }
 
-.item .button
-{
-  float: right;
-  border: 2px solid #00AA00;
-  background-color: #00FF00;
-  width: 80px;
-  text-align: center;
-  font-size: 12px;  
-}
-
 a {
   text-decoration: none;
   color: black;
@@ -41,4 +47,15 @@ a {
 
 .item a:active {
   background-color: #00AA00;  
+}
+
+#item_form input
+{
+  margin-top: 5px;
+  width: 60px;
+}
+
+#item_form .button
+{
+  margin-left: 5px;
 }
