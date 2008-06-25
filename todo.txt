@@ -1,3 +1,7 @@
+Idea:
+* .innerHTML = '' and rerender. That removes everything.
+  could work... question is: how fast is that on the pda?
+
 What works?
 * It runs somewhat good in firefox, except for the bugs :)
 
