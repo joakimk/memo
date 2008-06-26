@@ -3,7 +3,7 @@ Idea:
   could work... question is: how fast is that on the pda?
 
 What works?
-* It runs somewhat good in firefox, except for the bugs :)
+* It runs smoothly in firefox.
 
 Bugs:
 * When adding and removing out of order, items refuse to move

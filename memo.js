@@ -32,44 +32,35 @@ function save_item()
 }
 
 function add_have(link, name)
-{  
-  hide_item('need', name);
-  
+{      
   have.push(name);
   need = exclude_value_from_array(need, name);
-  save_state();  
+  save_state(); 
     
+  e('need').innerHTML = '';
+  show_needs();           
   show_have(name);
 }
 
-function show_have(name)
-{
-  e('have').innerHTML += '<div class="item" id="have_' + name + '"><a href="#" onclick="add_need(this, \'' + name + '\')" class="button">Need</a><div class="text"> ' + name + ' </div></div>';  
-}
-
 function add_need(link, name)
-{      
-  hide_item('have', name);
-  
+{        
   need.push(name);
   have = exclude_value_from_array(have, name);
   save_state();
   
+  e('have').innerHTML = '';
+  show_haves();
   show_need(name);
+}
+
+function show_have(name)
+{
+  e('have').innerHTML += '<div class="item"><a href="#" onclick="add_need(this, \'' + name + '\')" class="button">Need</a><div class="text"> ' + name + ' </div></div>';  
 }
 
 function show_need(name)
 {
-  e('need').innerHTML += '<div class="item" id="need_' + name + '"><a href="#" onclick="add_have(this, \'' + name + '\')" class="button">Have</a><div class="text"> ' + name + ' </div></div>';
-}
-
-function hide_item(type, name)
-{
-  // Can not get access to .parentNode in Windows Mobile 5.0,
-  // so the only option I can find is to hide them.  
-  var item = e(type + '_' + name);
-  item.style.display = 'none';
-  item.id = '';
+  e('need').innerHTML += '<div class="item"><a href="#" onclick="add_have(this, \'' + name + '\')" class="button">Have</a><div class="text"> ' + name + ' </div></div>';
 }
 
 function exclude_value_from_array(old_array, excluded_value)
@@ -121,15 +112,25 @@ function load_data()
   if(memo_need != undefined && memo_need != '')
     need = memo_need.split(','); 
     
-  for(var i = 0; i < have.length; i++)
-  {
-    show_have(have[i]);
-  }
-  
+  show_haves();
+  show_needs();
+}
+
+function show_needs()
+{
   for(var i = 0; i < need.length; i++)
   {
     show_need(need[i]);
-  }
+  }  
 }
+
+function show_haves()
+{
+  for(var i = 0; i < have.length; i++)
+  {
+    show_have(have[i]);
+  }  
+}
+
 
 setTimeout("load_data()", 1);
