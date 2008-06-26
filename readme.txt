@@ -1,7 +1,7 @@
 Memo
 
 About:
-Memo is a shoppinglist application mainly designed for Windows Mobile 5.0 (IE Mobile). It's written in xhtml/css and javascript using cookies to store data. As it's just a web application it could work just fine on any device or computer that implements enough of the javascript language.
+Memo is a shoppinglist application mainly designed for Windows Mobile 5.0 (IE Mobile). It's written in xhtml/css and javascript using cookies to store data. As it's just a web application it could work just fine on any device or computer with a browser that implements enough of the javascript language.
 
 You can find out more about here:
 http://github.com/joakimk/memo/wikis/memo
