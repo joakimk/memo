@@ -6,6 +6,9 @@ Memo is a shoppinglist application mainly designed for Windows Mobile 5.0 (IE Mo
 You can find out more about here:
 http://github.com/joakimk/memo/wikis/memo
 
+Installation:
+Just unzip it and open index.html. I recommend that you use it in fullscreen mode on small devices.
+
 Known bugs:
 * You can't have two items with the same name.
 

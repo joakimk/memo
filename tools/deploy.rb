@@ -9,9 +9,9 @@ name = "Memo-v#{version}"
 
 commands = [
   'cd ../..',
-  'cp -rf Memo #{name}',
-  'rm -rf #{name}/tools',
-  'rm -rf #{name}/.git',
+  "cp -rf Memo #{name}",
+  "rm -rf #{name}/tools",
+  "rm -rf #{name}/.git",
   "zip -r -9 #{name}.zip #{name}",
   "rm -rf #{name}"
 ]
