@@ -9,28 +9,47 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
     <script src="memo.js" type="text/javascript" charset="utf-8"></script>
   </head>
-  <body>  
-    <a href="javascript:add_item()" class="button no_float">
-      Add item
-    </a>
-    
-    <div id="item_form" style="display: none;">
-      <h3>New item</h3>
-      <input id="item_name" />
-      <a href="javascript:save_item()" class="button no_float">
-        Save
-      </a>
-      <a href="javascript:cancel_item()" class="button no_float">
-        Cancel
-      </a>
+  <body>
+    <div id="loading">
+      Loading...
     </div>
+    <div id="content" style="display:none">
+      <a href="javascript:add_item()" class="button no_float">
+        Add item
+      </a>
       
-    <h3>Need</h3>
-    <div id="need">   
-    </div>
-    
-    <h3>Have</h3>  
-    <div id="have">
+      <a href="javascript:delete_item()" class="button no_float" id="delete_item_button">
+        Delete item
+      </a>
+      
+      <div id="item_delete" style="display: none;">
+        <h3>Delete item</h3>   
+        <div id="item_delete_list">
+        </div>
+        
+        <a href="javascript:close_delete_item()" class="button no_float">
+          Cancel
+        </a>
+      </div>
+      
+      <div id="item_form" style="display: none;">
+        <h3>New item</h3>
+        <input id="item_name" />
+        <a href="javascript:save_item()" class="button no_float">
+          Save
+        </a>
+        <a href="javascript:cancel_item()" class="button no_float">
+          Cancel
+        </a>
+      </div>
+        
+      <h3>Need</h3>
+      <div id="need">   
+      </div>
+      
+      <h3>Have</h3>  
+      <div id="have">
+      </div>
     </div>
   </body>
 </html>

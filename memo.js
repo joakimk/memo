@@ -1,3 +1,19 @@
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from
+// the use of this software.
+//
+// Permission is granted to anyone to use this software for any purpose,
+// including commercial applications, and to alter it and redistribute it
+// freely, subject to the following restrictions:
+//
+// 1. The origin of this software must not be misrepresented; you must
+// not claim that you wrote the original software. If you use this
+// software in a product, an acknowledgment in the product documentation
+// would be appreciated but is not required.
+// 2. Altered source versions must be plainly marked as such, and must not
+// be misrepresented as being the original software.
+// 3. This notice may not be removed or altered from any source distribution.
+
 have = new Array();
 need = new Array();
 
@@ -16,6 +32,53 @@ function add_item()
   display('item_form', true);
 }
 
+function delete_item()
+{
+  display('item_delete', true);
+  add_items_to_delete_from(need);
+  add_items_to_delete_from(have);  
+}
+
+function close_delete_item()
+{
+  display('item_delete', false); 
+  e('item_delete_list').innerHTML = '';
+}
+
+function delete_item_by_name(name)
+{
+  if(is_in_array(have, name))
+    have = exclude_value_from_array(have, name)
+  else
+    need = exclude_value_from_array(need, name)  
+    
+  save_state();
+  close_delete_item();  
+  e('need').innerHTML = '';
+  e('have').innerHTML = '';
+  show_needs();
+  show_haves();  
+}
+
+function is_in_array(array, name)
+{
+  for(var i = 0; i < array.length; i++)
+  {
+    if(array[i] == name)
+      return true;
+  }
+  
+  return false;
+}
+
+function add_items_to_delete_from(list)
+{  
+  for(var i = 0; i < list.length; i++)
+  {
+    e('item_delete_list').innerHTML += create_list_item('delete_item_by_name', list[i], "Delete");
+  }    
+}
+
 function cancel_item()
 {
   display('item_form', false);
@@ -26,23 +89,21 @@ function save_item()
   display('item_form', false);
 
   var name = e('item_name').value;
-  have.push(name);  
-  save_state();  
   add_have(name);
 }
 
-function add_have(link, name)
+function add_have(name)
 {      
   have.push(name);
   need = exclude_value_from_array(need, name);
   save_state(); 
-    
+  
   e('need').innerHTML = '';
   show_needs();           
   show_have(name);
 }
 
-function add_need(link, name)
+function add_need(name)
 {        
   need.push(name);
   have = exclude_value_from_array(have, name);
@@ -55,12 +116,17 @@ function add_need(link, name)
 
 function show_have(name)
 {
-  e('have').innerHTML += '<div class="item"><a href="#" onclick="add_need(this, \'' + name + '\')" class="button">Need</a><div class="text"> ' + name + ' </div></div>';  
+  e('have').innerHTML += create_list_item('add_need', name, "Need");
 }
 
 function show_need(name)
 {
-  e('need').innerHTML += '<div class="item"><a href="#" onclick="add_have(this, \'' + name + '\')" class="button">Have</a><div class="text"> ' + name + ' </div></div>';
+  e('need').innerHTML += create_list_item('add_have', name, "Have");
+}
+
+function create_list_item(onclick_method, item_text, button_text)
+{
+  return '<div class="item"><a href="#" onclick="' + onclick_method + '(\'' + item_text + '\'); return false;" class="button">' + button_text + '</a><div class="text"> ' + item_text + ' </div></div>';  
 }
 
 function exclude_value_from_array(old_array, excluded_value)
@@ -114,6 +180,9 @@ function load_data()
     
   show_haves();
   show_needs();
+  
+  display('loading', false);
+  display('content', true);
 }
 
 function show_needs()
@@ -132,5 +201,5 @@ function show_haves()
   }  
 }
 
-
-setTimeout("load_data()", 1);
+// Only way I found to hook into "DOM loaded" on Windows Mobile 5.0 IE.
+setTimeout("load_data()", 500);
